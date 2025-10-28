@@ -11,7 +11,7 @@ const CategoryFilter = ({ categories, active, onChange }: Props) => {
   const all: (Category | "All")[] = ["All", ...categories];
   return (
     <div className="container mx-auto px-4">
-      <div className="flex flex-wrap gap-2">
+      <div className="flex gap-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
         {all.map((cat) => (
           <Button
             key={cat}
