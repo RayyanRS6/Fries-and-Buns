@@ -1,73 +1,116 @@
-# Welcome to your Lovable project
+# Fries & Buns
 
-## Project info
+A modern, responsive fast-food ordering UI built with React, TypeScript, Vite, Tailwind CSS, and shadcn/ui. Browse categories, explore menu items, manage a cart, and proceed to a checkout flow.
 
-**URL**: https://lovable.dev/projects/d22885b7-6f84-4e67-9616-d16d697477a5
+> This repository is the codebase for the Fries & Buns project.
 
-## How can I edit this code?
+## Features
+- Responsive layout with a polished UI using shadcn/ui (Radix primitives)
+- SEO support via `react-helmet-async`
+- Category filter and menu grid for quick discovery
+- Cart context with add/update/remove operations
+- Simple checkout flow scaffolding
+- Reusable UI components and utilities
 
-There are several ways of editing your application.
+## Tech Stack
+- React + TypeScript
+- Vite
+- React Router
+- Tailwind CSS + tailwind-merge + tailwindcss-animate
+- shadcn/ui + Radix UI
+- React Hook Form + Zod (validation ready)
+- TanStack Query (setup-ready for data fetching)
 
-**Use Lovable**
+## Getting Started
+### Prerequisites
+- Node.js 18+ and npm
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d22885b7-6f84-4e67-9616-d16d697477a5) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
+### Installation
+```bash
 npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Development
+```bash
+npm run dev
+```
+- Vite dev server will start and print a local URL.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build
+```bash
+npm run build
+```
+- Outputs production assets to `dist/`.
 
-**Use GitHub Codespaces**
+### Preview (serve the production build)
+```bash
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Lint
+```bash
+npm run lint
+```
 
-## What technologies are used for this project?
+## Project Structure
+```text
+.
+├─ public/
+├─ src/
+│  ├─ assets/
+│  ├─ components/
+│  │  ├─ common/        # Hero, SEO
+│  │  ├─ layout/        # Header, Footer
+│  │  ├─ menu/          # CategoryFilter, MenuGrid
+│  │  └─ ui/            # shadcn/ui components
+│  ├─ context/          # CartContext
+│  ├─ data/             # Menu data source
+│  ├─ hooks/
+│  ├─ lib/
+│  ├─ pages/            # Cart, Checkout, Index, Menu, NotFound
+│  ├─ App.tsx
+│  └─ main.tsx
+├─ index.html
+├─ tailwind.config.ts
+├─ vite.config.ts
+├─ tsconfig*.json
+└─ eslint.config.js
+```
 
-This project is built with:
+## Available Scripts
+- `dev`: Start the Vite development server
+- `build`: Build for production
+- `build:dev`: Development-mode build (useful for faster diagnostics)
+- `preview`: Preview the production build locally
+- `lint`: Run ESLint across the project
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Configuration
+- Tailwind config: `tailwind.config.ts`
+- PostCSS config: `postcss.config.js`
+- ESLint config: `eslint.config.js`
+- Vite config: `vite.config.ts`
 
-## How can I deploy this project?
+## Assets & Screenshots
+You can place screenshots or marketing images in `public/` or `src/assets/` and reference them here. For example:
 
-Simply open [Lovable](https://lovable.dev/projects/d22885b7-6f84-4e67-9616-d16d697477a5) and click on Share -> Publish.
+```markdown
+![Hero](./src/assets/hero-food-feast.jpg)
+```
 
-## Can I connect a custom domain to my Lovable project?
+## Roadmap Ideas
+- Persist cart to localStorage
+- Integrate real backend APIs with TanStack Query
+- Add authentication
+- Add tests (unit and E2E)
 
-Yes, you can!
+## Contributing
+Contributions are welcome! Feel free to open issues or pull requests.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## License
+No license specified yet. If you intend to open-source, consider adding a `LICENSE` file (e.g., MIT).
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Acknowledgements
+- [shadcn/ui](https://ui.shadcn.com)
+- [Radix UI](https://www.radix-ui.com)
+- [Vite](https://vitejs.dev)
+- [Tailwind CSS](https://tailwindcss.com)
