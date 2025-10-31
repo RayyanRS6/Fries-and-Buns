@@ -1,36 +1,27 @@
 const express = require("express");
 const cors = require("cors");
-const popularRoutes = require('./routes/popularRoutes');
+const mongoose = require("mongoose");
 
+
+mongoose.connect("mongodb://localhost:27017/cafe")
+.then(() => {
+    console.log("MongoDB connected");
+})
+.catch(err => {
+    console.error("MongoDB connection error:", err);
+});
+
+
+const menuRoutes = require('./routes/menuRoutes');
 
 const app = express();
 
 app.use(cors());    
 app.use(express.json());
 
-app.use('/', popularRoutes);
 
-// app.get("/", (req, res) => {
-//   res.send("Backend is running!");
-// });
+app.use('/api/menu', menuRoutes);
 
-app.get("/api/deals", (req, res) => {
-
-    const deals=[
-
-        {id:1, name:"Deal : 1", price:750},
-        {id:2, name:"Deal : 2", price:1250},
-        {id:3, name:"Deal : 3", price:1770},
-        {id:1, name:"Deal : 1", price:750},
-        {id:2, name:"Deal : 2", price:1250},
-        {id:3, name:"Deal : 3", price:1770},
-        {id:1, name:"Deal : 1", price:750},
-        {id:2, name:"Deal : 2", price:1250},
-        {id:3, name:"Deal : 3", price:1770},
-    ];
-
-    res.json(deals);
-});
 
 app.post("/api/order", (req, res) => {
 
@@ -40,9 +31,6 @@ app.post("/api/order", (req, res) => {
 
     res.json({ msj:"Order Has Been Recevied", order:orderData});
 });
-
-
-
 
 
 app.listen(5000, () => {
