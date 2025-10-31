@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-
+const popularRoutes = require('./routes/popularRoutes');
 
 
 const app = express();
@@ -8,6 +8,7 @@ const app = express();
 app.use(cors());    
 app.use(express.json());
 
+app.use('/', popularRoutes);
 
 // app.get("/", (req, res) => {
 //   res.send("Backend is running!");
