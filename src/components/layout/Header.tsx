@@ -1,10 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, LogIn, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
   const { totalQty } = useCart();
+  const { user, isAdmin } = useAuth();
 
   return (
     <header className="fixed top-4 left-0 right-0 z-50 w-full bg-transparent pointer-events-none">
@@ -22,6 +24,13 @@ const Header = () => {
           <a href="#contact" className="text-muted-foreground hover:text-foreground motion-smooth">Contact</a>
         </nav>
         <div className="flex items-center gap-3">
+          {isAdmin && (
+            <Link to="/admin/dashboard">
+              <Button variant="outline" size="icon">
+                <LayoutDashboard />
+              </Button>
+            </Link>
+          )}
           <Link to="/cart">
             <Button variant="outline" className="relative">
               <ShoppingCart />
@@ -33,9 +42,18 @@ const Header = () => {
               )}
             </Button>
           </Link>
-          <Link to="/menu">
-            <Button variant="hero">Order Now</Button>
-          </Link>
+          {user ? (
+            <Link to="/menu">
+              <Button variant="hero">Order Now</Button>
+            </Link>
+          ) : (
+            <Link to="/auth">
+              <Button variant="outline">
+                <LogIn />
+                Login
+              </Button>
+            </Link>
+          )}
         </div>
         </div>
       </div>
