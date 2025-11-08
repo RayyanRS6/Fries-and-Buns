@@ -29,7 +29,7 @@ const MenuGrid = ({ items, onAddToCart }: MenuGridProps) => {
           <Card key={item.id} className="group overflow-hidden transition-transform motion-smooth hover:-translate-y-0.5">
             <img
               src={item.image}
-              alt={`${item.name} — ${item.description}`}
+              alt={`${item.name} image`}
               className="h-44 w-full object-cover"
               loading="lazy"
             />
